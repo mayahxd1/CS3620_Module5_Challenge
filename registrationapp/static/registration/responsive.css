@@ -1,0 +1,14 @@
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .participants-table th,
+    .participants-table td {
+        padding: 8px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+    }
+}

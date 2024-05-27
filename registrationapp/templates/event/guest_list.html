@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'registration/base.css' %}">
+    <link rel="stylesheet" href="{% static 'registration/guest_list.css' %}">
+    <title>Participants</title>
+</head>
+<body>
+<div class="container">
+    <h1>Participants</h1>
+    <table class="participants-table">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Event Session</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for participant in participants %}
+        <tr>
+            <td>{{ participant.user_first_name }}</td>
+            <td>{{ participant.user_last_name }}</td>
+            <td>{{ participant.user_email }}</td>
+            <td>{{ participant.user_phone }}</td>
+            <td>{{ participant.event_session.event_name }}</td>
+            <td>
+                <a href="{% url 'participant_edit' participant.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{% url 'participant_delete' participant.pk %}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'index' %}" class="btn btn-primary">Back to Registration</a>
+</div>
+</body>
+</html>

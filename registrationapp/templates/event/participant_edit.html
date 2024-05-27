@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'registration/base.css' %}">
+    <link rel="stylesheet" href="{% static 'registration/guest_list.css' %}">
+    <title>Edit Participant</title>
+</head>
+<body>
+<div class="container">
+    <h1>Edit Guest</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ diet_section_form.as_p }}
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    <a href="{% url 'participant_list' %}" class="btn btn-secondary">Back to Participant List</a>
+</div>
+</body>
+</html>
